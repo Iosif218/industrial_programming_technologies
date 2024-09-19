@@ -2,6 +2,7 @@
 
 # Практическая работа 2
 ![image](https://github.com/user-attachments/assets/9e77c83c-de4c-4b12-a045-1c2c03a8bc3c)
+![use case интернет магазин](https://github.com/user-attachments/assets/20a3ea45-dcfc-4b7f-b593-fb8c9d982aad)
 
 ## Неавторизированный пользовтель 
 Может только смотреть товары на сайте или зарегестрироваться/войти в профиль
