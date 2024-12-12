@@ -38,7 +38,8 @@ CREATE TABLE orders (
     total_price NUMERIC(10, 2) NOT NULL CHECK (total_price >= 0),
     status VARCHAR(20) DEFAULT 'new',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    delivery_id int references deliveries(id)
 );
 
 CREATE TABLE order_items (
@@ -79,5 +80,16 @@ CREATE TABLE payments (
     payment_method VARCHAR(50) NOT NULL,
     payment_status VARCHAR(20) DEFAULT 'pending',
     transaction_id VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE deliveries (
+    id SERIAL PRIMARY KEY,
+    order_id INT REFERENCES orders(id) ON DELETE CASCADE,
+    address TEXT NOT NULL,
+    delivery_method VARCHAR(50) NOT NULL, 
+    delivery_status VARCHAR(20) DEFAULT 'pending', -- Статус доставки: pending, shipped, delivered
+    tracking_number VARCHAR(255), 
+    delivery_date TIMESTAMP, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
