@@ -39,7 +39,6 @@ CREATE TABLE orders (
     status VARCHAR(20) DEFAULT 'new',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    delivery_id int references deliveries(id)
 );
 
 CREATE TABLE order_items (
@@ -93,3 +92,6 @@ CREATE TABLE deliveries (
     delivery_date TIMESTAMP, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+alter table orders
+add column delivery_id int references deliveries(id);
